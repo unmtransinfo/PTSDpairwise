@@ -1,0 +1,265 @@
+{
+  "ExpressionLimit": {"Type": "First"},
+  "CollapseSettings": {
+    "CollapseType": "ERA",
+    "EraPad": 0
+  },
+  "CensorWindow": {
+    "StartDate": null,
+    "EndDate": null
+  },
+  "ConceptSets": [
+    {
+      "expression": {"items": [
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 436676,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "47505003",
+            "VOCABULARY_ID": "SNOMED",
+            "CONCEPT_NAME": "Posttraumatic stress disorder",
+            "DOMAIN_ID": "Condition",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Disorder",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 4178928,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "428687006",
+            "VOCABULARY_ID": "SNOMED",
+            "CONCEPT_NAME": "Nightmares associated with chronic post-traumatic stress disorder",
+            "DOMAIN_ID": "Condition",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Disorder",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        }
+      ]},
+      "name": "PTSD - new",
+      "id": 2
+    },
+    {
+      "expression": {"items": [
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 712757,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "719",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "amobarbital",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 959174,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "477631",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "butabarbital",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 730729,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "8004",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "pentobarbital",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 734275,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "8134",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "phenobarbital",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 766067,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "9624",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "secobarbital",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        }
+      ]},
+      "name": "[Drug Class] Barbiturates",
+      "id": 3
+    }
+  ],
+  "cdmVersionRange": ">=5.0.0",
+  "CensoringCriteria": [],
+  "QualifiedLimit": {"Type": "First"},
+  "InclusionRules": [
+    {
+      "expression": {
+        "CriteriaList": [],
+        "Type": "ALL",
+        "DemographicCriteriaList": [{
+          "Ethnicity": null,
+          "RaceCS": null,
+          "OccurrenceEndDate": null,
+          "Race": null,
+          "EthnicityCS": null,
+          "Gender": null,
+          "OccurrenceStartDate": null,
+          "Age": {
+            "Op": "gte",
+            "Extent": null,
+            "Value": 18
+          },
+          "GenderCS": null
+        }],
+        "Groups": [],
+        "Count": null
+      },
+      "name": "Age >= 18",
+      "description": null
+    },
+    {
+      "expression": {
+        "CriteriaList": [{
+          "RestrictVisit": false,
+          "StartWindow": {
+            "UseEventEnd": false,
+            "Start": {
+              "Days": 365,
+              "Coeff": -1
+            },
+            "End": {
+              "Days": 0,
+              "Coeff": 1
+            },
+            "UseIndexEnd": false
+          },
+          "IgnoreObservationPeriod": false,
+          "EndWindow": null,
+          "Criteria": {"ConditionOccurrence": {
+            "VisitTypeCS": null,
+            "ConditionStatusCS": null,
+            "ProviderSpecialtyCS": null,
+            "OccurrenceEndDate": null,
+            "CorrelatedCriteria": null,
+            "ConditionTypeExclude": null,
+            "CodesetId": 2,
+            "DateAdjustment": null,
+            "ProviderSpecialty": null,
+            "Gender": null,
+            "ConditionTypeCS": null,
+            "VisitType": null,
+            "First": null,
+            "OccurrenceStartDate": null,
+            "ConditionType": null,
+            "ConditionSourceConcept": null,
+            "ConditionStatus": null,
+            "StopReason": null,
+            "Age": null,
+            "GenderCS": null
+          }},
+          "Occurrence": {
+            "Type": 2,
+            "CountColumn": null,
+            "IsDistinct": false,
+            "Count": 1
+          }
+        }],
+        "Type": "ALL",
+        "DemographicCriteriaList": [],
+        "Groups": [],
+        "Count": null
+      },
+      "name": "Has prior PTSD",
+      "description": null
+    }
+  ],
+  "PrimaryCriteria": {
+    "CriteriaList": [{"DrugExposure": {
+      "OccurrenceEndDate": null,
+      "DrugTypeExclude": false,
+      "DrugType": null,
+      "ProviderSpecialty": null,
+      "Gender": null,
+      "DaysSupply": null,
+      "First": null,
+      "RouteConcept": null,
+      "StopReason": null,
+      "LotNumber": null,
+      "Age": null,
+      "VisitTypeCS": null,
+      "ProviderSpecialtyCS": null,
+      "CorrelatedCriteria": null,
+      "DrugSourceConcept": null,
+      "DoseUnitCS": null,
+      "CodesetId": 3,
+      "DateAdjustment": null,
+      "Quantity": null,
+      "EffectiveDrugDose": null,
+      "DrugTypeCS": null,
+      "DoseUnit": null,
+      "VisitType": null,
+      "Refills": null,
+      "OccurrenceStartDate": null,
+      "RouteConceptCS": null,
+      "GenderCS": null
+    }}],
+    "PrimaryCriteriaLimit": {"Type": "First"},
+    "ObservationWindow": {
+      "PostDays": 0,
+      "PriorDays": 365
+    }
+  }
+}

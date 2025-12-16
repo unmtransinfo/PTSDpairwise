@@ -1,0 +1,962 @@
+{
+  "ExpressionLimit": {"Type": "First"},
+  "CollapseSettings": {
+    "CollapseType": "ERA",
+    "EraPad": 0
+  },
+  "CensorWindow": {
+    "StartDate": null,
+    "EndDate": null
+  },
+  "ConceptSets": [
+    {
+      "expression": {"items": [
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 436676,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "47505003",
+            "VOCABULARY_ID": "SNOMED",
+            "CONCEPT_NAME": "Posttraumatic stress disorder",
+            "DOMAIN_ID": "Condition",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Disorder",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 4178928,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "428687006",
+            "VOCABULARY_ID": "SNOMED",
+            "CONCEPT_NAME": "Nightmares associated with chronic post-traumatic stress disorder",
+            "DOMAIN_ID": "Condition",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Disorder",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        }
+      ]},
+      "name": "PTSD - new",
+      "id": 2
+    },
+    {
+      "expression": {"items": [
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 781039,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "596",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "alprazolam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36852894,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP5170510",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "BENTAZEPAM",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 19030353,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "1749",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "bromazepam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 19039262,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "19790",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "brotizolam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 40798714,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP2721039",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "Camazepam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 990678,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "2356",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "chlordiazepoxide",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36861969,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP5179586",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "CINAZEPAM",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36852970,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP5170586",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "CINOLAZEPAM",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 19050832,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "21241",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "clobazam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 798874,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "2598",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "clonazepam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 790253,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "2353",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "clorazepate",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 19068821,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "2622",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "clotiazepam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 19051096,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "21311",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "cloxazolam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36860089,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP5177706",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "DELORAZEPAM",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 723013,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "3322",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "diazepam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 748010,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "4077",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "estazolam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 19095467,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "24524",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "ethyl loflazepate",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 43009000,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4700426",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "etizolam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 35198139,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4819504",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "fludiazepam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 19055224,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "4460",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "flunitrazepam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 756349,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "4501",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "flurazepam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 35197872,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4819237",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "flutazolam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 35197972,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4819337",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "flutoprazepam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 801396,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "26412",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "halazepam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 35198171,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4819536",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "haloxazolam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 19003946,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "28181",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "ketazolam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 791967,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "6470",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "lorazepam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 19007977,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "28894",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "lormetazepam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 19125106,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "6680",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "medazepam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 43009058,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4700484",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "mexazolam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 708298,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "6960",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "midazolam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 35197946,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4819311",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "nimetazepam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 19020021,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "7440",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "nitrazepam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 19080959,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "3155",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "nordazepam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 724816,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "7781",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "oxazepam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 40799014,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP2721354",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "Oxazolam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36850946,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP5168563",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "PHENAZEPAM",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 2100521,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4976869",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "pinazepam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 19050461,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "8627",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "prazepam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 731188,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "35185",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "quazepam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 1146633,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "2383941",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "remimazolam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 836715,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "10355",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "temazepam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 19041746,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "37985",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "tetrazepam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 704599,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "10767",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "triazolam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 19042550,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "38555",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "triazulenone",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 44818464,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "1535252",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "zolazepam",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        }
+      ]},
+      "name": "[Drug Class] Benzodiazepines",
+      "id": 3
+    }
+  ],
+  "cdmVersionRange": ">=5.0.0",
+  "CensoringCriteria": [],
+  "QualifiedLimit": {"Type": "First"},
+  "InclusionRules": [
+    {
+      "expression": {
+        "CriteriaList": [],
+        "Type": "ALL",
+        "DemographicCriteriaList": [{
+          "Ethnicity": null,
+          "RaceCS": null,
+          "OccurrenceEndDate": null,
+          "Race": null,
+          "EthnicityCS": null,
+          "Gender": null,
+          "OccurrenceStartDate": null,
+          "Age": {
+            "Op": "gte",
+            "Extent": null,
+            "Value": 18
+          },
+          "GenderCS": null
+        }],
+        "Groups": [],
+        "Count": null
+      },
+      "name": "Age >= 18",
+      "description": null
+    },
+    {
+      "expression": {
+        "CriteriaList": [{
+          "RestrictVisit": false,
+          "StartWindow": {
+            "UseEventEnd": false,
+            "Start": {
+              "Days": 365,
+              "Coeff": -1
+            },
+            "End": {
+              "Days": 0,
+              "Coeff": 1
+            },
+            "UseIndexEnd": false
+          },
+          "IgnoreObservationPeriod": false,
+          "EndWindow": null,
+          "Criteria": {"ConditionOccurrence": {
+            "VisitTypeCS": null,
+            "ConditionStatusCS": null,
+            "ProviderSpecialtyCS": null,
+            "OccurrenceEndDate": null,
+            "CorrelatedCriteria": null,
+            "ConditionTypeExclude": null,
+            "CodesetId": 2,
+            "DateAdjustment": null,
+            "ProviderSpecialty": null,
+            "Gender": null,
+            "ConditionTypeCS": null,
+            "VisitType": null,
+            "First": null,
+            "OccurrenceStartDate": null,
+            "ConditionType": null,
+            "ConditionSourceConcept": null,
+            "ConditionStatus": null,
+            "StopReason": null,
+            "Age": null,
+            "GenderCS": null
+          }},
+          "Occurrence": {
+            "Type": 2,
+            "CountColumn": null,
+            "IsDistinct": false,
+            "Count": 1
+          }
+        }],
+        "Type": "ALL",
+        "DemographicCriteriaList": [],
+        "Groups": [],
+        "Count": null
+      },
+      "name": "Has prior PTSD",
+      "description": null
+    }
+  ],
+  "PrimaryCriteria": {
+    "CriteriaList": [{"DrugExposure": {
+      "OccurrenceEndDate": null,
+      "DrugTypeExclude": false,
+      "DrugType": null,
+      "ProviderSpecialty": null,
+      "Gender": null,
+      "DaysSupply": null,
+      "First": null,
+      "RouteConcept": null,
+      "StopReason": null,
+      "LotNumber": null,
+      "Age": null,
+      "VisitTypeCS": null,
+      "ProviderSpecialtyCS": null,
+      "CorrelatedCriteria": null,
+      "DrugSourceConcept": null,
+      "DoseUnitCS": null,
+      "CodesetId": 3,
+      "DateAdjustment": null,
+      "Quantity": null,
+      "EffectiveDrugDose": null,
+      "DrugTypeCS": null,
+      "DoseUnit": null,
+      "VisitType": null,
+      "Refills": null,
+      "OccurrenceStartDate": null,
+      "RouteConceptCS": null,
+      "GenderCS": null
+    }}],
+    "PrimaryCriteriaLimit": {"Type": "First"},
+    "ObservationWindow": {
+      "PostDays": 0,
+      "PriorDays": 365
+    }
+  }
+}

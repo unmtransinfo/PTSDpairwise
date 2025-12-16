@@ -1,0 +1,22 @@
+targetId,comparatorId,outcomeId,outcomeName,type
+17,28,200528,Ascites,outcome
+17,28,257315,Bacterial pneumonia,outcome
+17,28,4165112,Bronchiolitis,outcome
+17,28,29735,Candidiasis of mouth,outcome
+17,28,433516,Duodenitis,outcome
+17,28,442619,Fracture of humerus,outcome
+17,28,444429,Herpes simplex,outcome
+17,28,432661,Inflammatory disease of mucous membrane,outcome
+17,28,4289933,Malignant hypertension,outcome
+17,28,433701,Mycosis,outcome
+17,28,444252,Neuritis,outcome
+17,28,4174262,Polyneuropathy,outcome
+17,28,436676,Posttraumatic stress disorder,outcome
+17,28,198199,Pyelonephritis,outcome
+17,28,435524,Sleep disorder,outcome
+17,28,435459,Staphylococcal infectious disease,outcome
+17,28,317376,Tachypnea,outcome
+17,28,435140,Toxic effect of alcohol,outcome
+17,28,4270490,Tracheitis,outcome
+17,28,4134454,Vascular headache,outcome
+17,28,197494,Viral hepatitis C,outcome

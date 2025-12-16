@@ -1,0 +1,30 @@
+webApiCohortId,cohortId,cohortName
+4,4,[Drug Class] Barbiturates
+5,5,[Outcome] Psychiatric Hospitalization
+6,6,[Outcome] Non-Psychiatric Hospitalization
+8,8,[Drug Class] Alpha_agonist
+9,9,[Drug Class] Alpha_blocker
+10,10,[Drug Class] AntiConvulsant
+11,11,[Drug Class] Azaspirone
+12,12,[Drug Class] SARI
+13,13,[Drug Class] Benzodiazepines
+14,14,[Drug Class] Benzoxazine
+15,15,[Drug Class] BetaBlocker
+16,16,[Drug Class] Cannabinoids
+17,17,[Drug Class] FGA
+18,18,[Drug Class] Lithium
+19,19,[Drug Class] MAOI
+20,20,[Drug Class] Melatonin_Receptor_Agonists
+21,21,[Drug Class] MSA
+22,22,[Drug Class] NaSSA
+23,23,[Drug Class] NDRI
+24,24,[Drug Class] NMDAR_Antagonist
+25,25,[Drug Class] OrexinAntagonists
+26,26,[Drug Class] Psychedelics
+28,28,[Drug Class] SGA
+29,29,[Drug Class] SMS
+30,30,[Drug Class] SNRI
+31,31,[Drug Class] SSRI
+32,32,[Drug Class] TCA_TeCA
+33,33,[Drug Class] Z_Drugs
+35,35,[Outcome] Self Harm - Snomed
