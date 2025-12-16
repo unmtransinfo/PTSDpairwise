@@ -2,8 +2,8 @@
 # User input
 # -------------------------------------------------------------------------
 
-# Folder containing excluded covariate lists
-excluded_folder <- "~/excluded_covariate_concept_ids"
+# Folder containing excluded covariate lists (in inst/ directory)
+excluded_folder <- "inst/excluded_covariate_concept_ids"
 
 # Constant values for outcomes
 outcome_ids <- "4;5;35"
@@ -103,9 +103,9 @@ pairs$includedCovariateConceptIds <- included_covariate_concept_ids
 
 write.csv(
   pairs,
-  file = "~/TcosOfInterest.csv",
+  file = "inst/settings/TcosOfInterest.csv",
   row.names = FALSE,
   quote = FALSE
 )
 
-cat("File written: TcosOfInterest.csv\n")
+cat("File written: inst/settings/TcosOfInterest.csv\n")
