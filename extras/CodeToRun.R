@@ -1,33 +1,41 @@
+#Set this to where the study package is installed
 setwd("~/PTSDpairwise")
 library(PTSDpairwise)
 
 # Optional: specify where the temporary files (used by the Andromeda package) will be created:
-options(andromedaTempFolder = "~/PTSDpairwise/andromedaTemp")
+options(andromedaTempFolder = "andromedaTemp")
 
 # Maximum number of cores to be used:
 maxCores <- parallel::detectCores() - 1
 
 # The folder where the study intermediate and result files will be written:
-outputFolder <- "~/PTSDpairwise/output"
+outputFolder <- "output"
+
+#This prompts for password
+mypassword <- getPass::getPass("Enter your password:")
+
+#Set this to your username
+myusername <- "lambert"
 
 # Details for connecting to the server:
 connectionDetails <- DatabaseConnector::createConnectionDetails(dbms = "postgresql",
+		     						server = "localhost/truven",
                                                                 connectionString = "jdbc:postgresql://localhost:5432/truven", 
-                                                                user = Sys.getenv("DB_USERNAME"),
-                                                                password = Sys.getenv("DB_PASSWORD"),  
+                                                                user = myusername,
+                                                                password = mypassword,
                                                                 pathToDriver = "~/jdbcDrivers")
 
 # The name of the database schema where the CDM data can be found:
-cdmDatabaseSchema <- "ccae2003_2023"
+cdmDatabaseSchema <- "mdcr2003_2023"
 
 # The name of the database schema and table where the study-specific cohorts will be instantiated:
-cohortDatabaseSchema <- "SCHEMA" # temporary schema for cohort creation
-cohortTable <- "SCHEMA" # cohort table where the cohorts are chreated
-tempEmulationSchema <- "SCHEMA"
+cohortDatabaseSchema <- "ptsd_mdcr_temp" # temporary schema for cohort creation
+cohortTable <- "ptsd_mdcr_cohort" # cohort table where the cohorts are chreated
+tempEmulationSchema <- cohortDatabaseSchema
 # Some meta-information that will be used by the export function:
-databaseId <- "MDCR"
-databaseName <- "IBM MarketScan?? Medicare Supplemental and Coordination of Benefits Database"
-databaseDescription <- "IBM MarketScan?? Medicare Supplemental and Coordination of Benefits Database (MDCR) represents health services of retirees in the United States with primary or Medicare supplemental coverage through privately insured fee-for-service, point-of-service, or capitated health plans.  These data include adjudicated health insurance claims (e.g. inpatient, outpatient, and outpatient pharmacy). Additionally, it captures laboratory tests for a subset of the covered lives."
+databaseId <- "mdcr"
+databaseName <- "MarketScan Medicare Supplemental and Coordination of Benefits Database"
+databaseDescription <- "MarketScan Medicare Supplemental and Coordination of Benefits Database (MDCR) represents health services of retirees in the United States with primary or Medicare supplemental coverage through privately insured fee-for-service, point-of-service, or capitated health plans.  These data include adjudicated health insurance claims (e.g. inpatient, outpatient, and outpatient pharmacy). Additionally, it captures laboratory tests for a subset of the covered lives."
 
 # For some database platforms (e.g. Oracle): define a schema that can be used to emulate temp tables:
 options(sqlRenderTempEmulationSchema = NULL)
