@@ -1,0 +1,3 @@
+"","Id","Code","Name","Class","Standard Concept Caption","Valid Start Date","Valid End Date","RC","DRC","PC","DPC","Domain","Vocabulary","Ancestors"
+"","36858861","OMOP5176478","MIDOMAFETAMINE","Ingredient","Standard","12/31/1969","12/30/2099","0","0","0","0","Drug","RxNorm Extension","$parents[1].showAncestorsModal(d.CONCEPT_ID), tooltip: ''"">0"
+"","36856389","OMOP5174005","PSILOCIN","Ingredient","Standard","12/31/1969","12/30/2099","0","0","0","0","Drug","RxNorm Extension","$parents[1].showAncestorsModal(d.CONCEPT_ID), tooltip: ''"">0"
