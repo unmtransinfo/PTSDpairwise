@@ -61,8 +61,15 @@
 #' @param packageResults       Should results be packaged for later sharing?     
 #' @param maxCores             How many parallel cores should be used? If more cores are made available
 #'                             this can speed up the analyses.
-#' @param minCellCount         The minimum number of subjects contributing to a count before it can be included 
+#' @param minCellCount         The minimum number of subjects contributing to a count before it can be included
 #'                             in packaged results.
+#' @param minCohortSize        The minimum number of subjects required in both target and comparator cohorts
+#'                             for a pairwise comparison to be included in the analysis. Comparisons where
+#'                             either cohort has fewer subjects will be excluded. Default is 100.
+#' @param excludeCohortIds     A vector of cohort IDs to exclude from all comparisons. Any target-comparator
+#'                             pair where either the target or comparator is in this list will be excluded.
+#'                             Use this to skip cohorts with known issues (e.g., high correlation with covariates).
+#'                             Default is empty (no exclusions).
 #'
 #' @examples
 #' \dontrun{
@@ -102,7 +109,9 @@ execute <- function(connectionDetails,
                     runAnalyses = TRUE,
                     packageResults = TRUE,
                     maxCores = 4,
-                    minCellCount = 5) {
+                    minCellCount = 5,
+                    minCohortSize = 100,
+                    excludeCohortIds = c()) {
   outputFolder <- normalizePath(outputFolder, mustWork = FALSE)
   if (!file.exists(outputFolder)) {
     dir.create(outputFolder, recursive = TRUE)
@@ -168,7 +177,9 @@ execute <- function(connectionDetails,
                     cohortTable = cohortTable,
                     tempEmulationSchema = tempEmulationSchema,
                     outputFolder = outputFolder,
-                    maxCores = maxCores)
+                    maxCores = maxCores,
+                    minCohortSize = minCohortSize,
+                    excludeCohortIds = excludeCohortIds)
   }
   
   if (packageResults) {

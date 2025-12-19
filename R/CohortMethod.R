@@ -20,7 +20,9 @@ runCohortMethod <- function(connectionDetails,
                             cohortTable,
                             tempEmulationSchema,
                             outputFolder,
-                            maxCores) {
+                            maxCores,
+                            minCohortSize = 100,
+                            excludeCohortIds = c()) {
   cmOutputFolder <- file.path(outputFolder, "cmOutput")
   if (!file.exists(cmOutputFolder)) {
     dir.create(cmOutputFolder)
@@ -29,7 +31,7 @@ runCohortMethod <- function(connectionDetails,
                                     "cmAnalysisList.json",
                                     package = "PTSDpairwise")
   cmAnalysisList <- CohortMethod::loadCmAnalysisList(cmAnalysisListFile)
-  tcosList <- createTcos(outputFolder = outputFolder)
+  tcosList <- createTcos(outputFolder = outputFolder, minCohortSize = minCohortSize, excludeCohortIds = excludeCohortIds)
   outcomesOfInterest <- getOutcomesOfInterest()
   results <- CohortMethod::runCmAnalyses(connectionDetails = connectionDetails,
                                          cdmDatabaseSchema = cdmDatabaseSchema,
@@ -107,12 +109,51 @@ addAnalysisDescription <- function(data, IdColumnName = "analysisId", nameColumn
   return(data)
 }
 
-createTcos <- function(outputFolder) {
+createTcos <- function(outputFolder, minCohortSize = 100, excludeCohortIds = c()) {
   pathToCsv <- system.file("settings", "TcosOfInterest.csv", package = "PTSDpairwise")
   tcosOfInterest <- read.csv(pathToCsv, stringsAsFactors = FALSE)
   allControls <- getAllControls(outputFolder)
   tcs <- unique(rbind(tcosOfInterest[, c("targetId", "comparatorId")],
                       allControls[, c("targetId", "comparatorId")]))
+
+  # Filter out excluded cohort IDs (e.g., cohorts with known high correlation issues)
+  if (length(excludeCohortIds) > 0) {
+    excludedByIds <- tcs[tcs$targetId %in% excludeCohortIds | tcs$comparatorId %in% excludeCohortIds, ]
+    if (nrow(excludedByIds) > 0) {
+      message(sprintf("Excluding %d target-comparator pairs involving cohort IDs: %s",
+                      nrow(excludedByIds), paste(excludeCohortIds, collapse = ", ")))
+    }
+    tcs <- tcs[!(tcs$targetId %in% excludeCohortIds | tcs$comparatorId %in% excludeCohortIds), ]
+  }
+
+  # Filter by minimum cohort size if CohortCounts.csv exists
+  cohortCountsFile <- file.path(outputFolder, "CohortCounts.csv")
+  if (file.exists(cohortCountsFile)) {
+    cohortCounts <- read.csv(cohortCountsFile, stringsAsFactors = FALSE)
+    tcs$targetSubjects <- cohortCounts$cohortSubjects[match(tcs$targetId, cohortCounts$cohortId)]
+    tcs$comparatorSubjects <- cohortCounts$cohortSubjects[match(tcs$comparatorId, cohortCounts$cohortId)]
+    tcs$targetSubjects[is.na(tcs$targetSubjects)] <- 0
+    tcs$comparatorSubjects[is.na(tcs$comparatorSubjects)] <- 0
+
+    excluded <- tcs[tcs$targetSubjects < minCohortSize | tcs$comparatorSubjects < minCohortSize, ]
+    if (nrow(excluded) > 0) {
+      message(sprintf("Excluding %d target-comparator pairs with < %d subjects:", nrow(excluded), minCohortSize))
+      for (i in 1:nrow(excluded)) {
+        message(sprintf("  t%d (n=%d) vs c%d (n=%d)",
+                        excluded$targetId[i], excluded$targetSubjects[i],
+                        excluded$comparatorId[i], excluded$comparatorSubjects[i]))
+      }
+    }
+    tcs <- tcs[tcs$targetSubjects >= minCohortSize & tcs$comparatorSubjects >= minCohortSize, ]
+    tcs <- tcs[, c("targetId", "comparatorId")]  # Remove helper columns
+
+    if (nrow(tcs) == 0) {
+      stop("No target-comparator pairs have sufficient sample size (minCohortSize = ", minCohortSize, ")")
+    }
+    message(sprintf("Proceeding with %d target-comparator pairs that meet minimum cohort size requirement", nrow(tcs)))
+  } else {
+    message("CohortCounts.csv not found - proceeding without cohort size filtering")
+  }
   createTco <- function(i) {
     targetId <- tcs$targetId[i]
     comparatorId <- tcs$comparatorId[i]

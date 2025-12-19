@@ -6,23 +6,22 @@ library(PTSDpairwise)
 options(andromedaTempFolder = "andromedaTemp")
 
 # Maximum number of cores to be used:
-maxCores <- parallel::detectCores() - 1
+maxCores <- round(parallel::detectCores()/2)    
 
 # The folder where the study intermediate and result files will be written:
 outputFolder <- "output"
 
-#This prompts for password
-mypassword <- getPass::getPass("Enter your password:")
 
-#Set this to your username
-myusername <- "lambert"
+Sys.setenv(DB_USER= "lambert" )
+#This prompts for password
+Sys.setenv(DB_PASSWORD = getPass::getPass("Enter your password:"))
 
 # Details for connecting to the server:
 connectionDetails <- DatabaseConnector::createConnectionDetails(dbms = "postgresql",
 		     						server = "localhost/truven",
                                                                 connectionString = "jdbc:postgresql://localhost:5432/truven", 
-                                                                user = myusername,
-                                                                password = mypassword,
+                                                                user = Sys.getenv("DB_USER"),
+                                                                password =  Sys.getenv("DB_PASSWORD"),
                                                                 pathToDriver = "~/jdbcDrivers")
 
 # The name of the database schema where the CDM data can be found:
@@ -40,6 +39,28 @@ databaseDescription <- "MarketScan Medicare Supplemental and Coordination of Ben
 # For some database platforms (e.g. Oracle): define a schema that can be used to emulate temp tables:
 options(sqlRenderTempEmulationSchema = NULL)
 
+# verifyDependencies: When TRUE (default), checks that all required R packages are installed
+# with compatible versions before running. Set to FALSE to skip this check when you know
+# dependencies are already satisfied (e.g., when resuming a previously interrupted run in
+# the same R session). Skipping saves time but risks cryptic errors if packages are missing.
+
+# createCohorts: When TRUE (default), creates/recreates the cohort table in the database.
+# Set to FALSE when resuming a failed run where cohorts were already successfully created.
+# The cohort table is preserved in the database between runs, so skipping this step avoids
+# redundant computation and preserves the exact same cohort definitions.
+
+# minCohortSize: Minimum number of subjects required in BOTH target and comparator cohorts
+# for a pairwise comparison to be included. Pairs where either cohort has fewer subjects
+# are excluded before analysis begins. This prevents failures from:
+# - Zero subjects in one cohort
+# - Insufficient data for propensity score model convergence
+# - High correlation between covariates and treatment assignment
+
+# excludeCohortIds: Cohorts to completely exclude from all comparisons. Used to skip
+# cohorts with known issues (e.g., high covariate-treatment correlation).
+# Cohort 24 = NMDAR_Antagonist (Ketamine) - high correlation issues
+# Cohort 33 = Z_Drugs (Zolpidem, etc.) - insomnia diagnosis may cause perfect separation
+
 execute(connectionDetails = connectionDetails,
         cdmDatabaseSchema = cdmDatabaseSchema,
         cohortDatabaseSchema = cohortDatabaseSchema,
@@ -48,12 +69,14 @@ execute(connectionDetails = connectionDetails,
         databaseId = databaseId,
         databaseName = databaseName,
         databaseDescription = databaseDescription,
-        verifyDependencies = FALSE, # Default: TRUE
-        createCohorts = TRUE, # Default: TRUE
-        synthesizePositiveControls = FALSE, # Default: TRUE
-        runAnalyses = TRUE,
+        verifyDependencies = FALSE, # Skip dependency check when resuming (already verified)
+        createCohorts = FALSE, # Skip cohort creation - cohorts already exist from previous run
+        synthesizePositiveControls = FALSE, # Default: TRUE - skip if already synthesized
+        runAnalyses = TRUE, # Resume CohortMethod analysis from where it left off
         packageResults = TRUE,
-        maxCores = maxCores)
+        maxCores = maxCores,
+        minCohortSize = 100, # Filter out pairs with < 100 subjects in either cohort
+        excludeCohortIds = c(24, 33)) # Skip NMDAR_Antagonist and Z_Drugs (high correlation issues)
 
 resultsZipFile <- file.path(outputFolder, "export", paste0("Results_", databaseId, ".zip"))
 dataFolder <- file.path(outputFolder, "shinyData")

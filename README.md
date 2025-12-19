@@ -31,7 +31,7 @@ Place the driver into a folder that's accessible (e.g., `~/jdbcDrivers`).
 Create and activate a Conda environment with R version 4.1.2, OpenJDK, and libsodium. This must be done before setting up the R packages:
 
 ```bash
-conda create -n ptsdpairwise -c conda-forge r-base=4.1.2 openjdk=11 libsodium
+conda create -n ptsdpairwise -c conda-forge r-base=4.1.2 openjdk=11 libsodium r-shiny r-dt
 conda activate ptsdpairwise
 ```
 
@@ -132,7 +132,7 @@ How to Run
 Before running the study, you must create a database schema where the study cohorts will be stored. This schema requires write access. For example, in PostgreSQL:
 
 ```sql
-CREATE SCHEMA ptsd_cohort_schema AUTHORIZATION your_username;
+CREATE SCHEMA ptsd_cohort_schema;
 ```
 
 ### 2. Configure and Execute the Study
@@ -168,6 +168,98 @@ After the analysis completes, the script will launch the Evidence Explorer Shiny
 ### 4. Upload Results (Optional)
 
 To upload the results to the OHDSI SFTP server, edit the `privateKeyFileName` and `userName` variables in `extras/CodeToRun.R` and uncomment the `uploadResults` call.
+
+Resuming Failed Runs
+====================
+
+Both CohortGenerator and CohortMethod have built-in checkpointing capabilities that allow you to resume interrupted runs without starting from scratch.
+
+### Checkpoint Files and Resume Behavior
+
+The study generates intermediate files that serve as checkpoints. When you re-run the study, existing files are detected and the corresponding steps are skipped:
+
+| File/Pattern | Created By | Resume Behavior |
+|-------------|------------|-----------------|
+| `output/CohortCounts.csv` | `createCohorts()` | Counts are regenerated each run (no caching) |
+| `output/cmOutput/CmData_l1_t*_c*.zip` | `CohortMethod::runCmAnalyses()` | **Skipped if file exists** - covariate data is reused |
+| `output/cmOutput/Ps_l1_s1_p1_t*_c*.rds` | `CohortMethod::runCmAnalyses()` | **Skipped if file exists** - propensity score models are reused |
+| `output/cmOutput/StudyPop_*.rds` | `CohortMethod::runCmAnalyses()` | **Skipped if file exists** - study populations are reused |
+| `output/cmOutput/Strat*.rds` | `CohortMethod::runCmAnalyses()` | **Skipped if file exists** - stratification is reused |
+| `output/cmOutput/Analysis_1/om_*.rds` | `CohortMethod::runCmAnalyses()` | **Skipped if file exists** - outcome models are reused |
+| `output/cmOutput/outcomeModelReference.rds` | `CohortMethod::runCmAnalyses()` | Reference table tracking all analysis files |
+
+### How to Resume After a Failure
+
+If your run is interrupted (e.g., database timeout, memory error, PS model fitting failure), you can simply re-run the same command:
+
+```r
+execute(connectionDetails = connectionDetails,
+        cdmDatabaseSchema = cdmDatabaseSchema,
+        cohortDatabaseSchema = cohortDatabaseSchema,
+        cohortTable = cohortTable,
+        outputFolder = outputFolder,
+        createCohorts = FALSE,  # Set to FALSE to skip cohort regeneration
+        runAnalyses = TRUE,
+        ...)
+```
+
+**Key points for resuming:**
+
+1. **Set `createCohorts = FALSE`** if cohorts were already created successfully. This skips the cohort generation step and preserves the existing cohort table in the database.
+
+2. **CohortMethod automatically resumes** from where it left off by checking for existing intermediate files. It will:
+   - Skip extracting CmData for target-comparator pairs that already have `.zip` files
+   - Skip fitting propensity score models that already have `.rds` files
+   - Skip fitting outcome models that already exist
+
+3. **The `outcomeModelReference.rds` file** tracks all planned analyses. If this file exists, CohortMethod uses it to determine which analyses still need to be completed.
+
+### Cohort Generation Behavior
+
+By default, `CohortGenerator::generateCohortSet()` is called **without** the `incremental = TRUE` parameter in this package. This means:
+
+- **Cohorts are regenerated each time** `createCohorts = TRUE` is set
+- The cohort table is recreated from scratch
+- Use `createCohorts = FALSE` on subsequent runs to preserve existing cohorts
+
+### Handling Comparisons with Insufficient Sample Size
+
+Some target-comparator pairs may fail due to insufficient subjects in one or both cohorts. The `minCohortSize` parameter (default: 100) filters out these pairs before analysis begins:
+
+```r
+execute(connectionDetails = connectionDetails,
+        ...,
+        minCohortSize = 100,  # Minimum subjects required in both target and comparator
+        ...)
+```
+
+Pairs that don't meet the minimum are logged and excluded:
+```
+Excluding 15 target-comparator pairs with < 100 subjects:
+  t4 (n=75) vs c14 (n=0)
+  t4 (n=75) vs c26 (n=0)
+  ...
+```
+
+This prevents errors from comparisons that would inevitably fail due to:
+- Zero subjects in one cohort
+- Insufficient data for propensity score model convergence
+- High correlation between covariates and treatment assignment
+
+### Cleaning Up for a Fresh Run
+
+To start completely fresh, remove the output folder:
+
+```bash
+rm -rf output/
+mkdir -p output
+```
+
+Or to preserve cohort counts but re-run analyses:
+
+```bash
+rm -rf output/cmOutput/
+```
 
 License
 =======
